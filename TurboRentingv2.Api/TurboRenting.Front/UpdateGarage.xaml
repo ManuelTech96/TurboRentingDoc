@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.UpdateGarage"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <VerticalStackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="20">
+
+        <Grid ColumnSpacing="10"
+              RowSpacing="35">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nombre"/>
+            <Entry x:Name="EditNameControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Column="1"/>
+
+            <Label Text="Calle"
+                   Grid.Row="1"/>
+            <Entry x:Name="EditAddressControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+
+            <Label Text="Localidad"
+                   Grid.Row="2"/>
+            <Entry x:Name="EditLocationControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+            <Label Text="Telefono"
+                   Grid.Row="3"/>
+            <Entry x:Name="EditPhoneControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+
+            <Label Text="Capacidad"
+                   Grid.Row="4"/>
+            <Entry x:Name="EditCapacityControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+
+            <Label Text="Lavado de vehiculos"
+                   Grid.Row="5"/>
+            <CheckBox x:Name="EditVehiculeWasherControl"
+                      Grid.Row="5"
+                      Grid.Column="1"/>
+
+            <Button x:Name="UpdateButton"
+                    Text="Actualizar"
+                    TextColor="Black"
+                    Clicked="OnUpdateButton"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    BackgroundColor="White"
+                    BorderColor="Black"
+                    BorderWidth="0.5"/>
+        </Grid>
+
+        <Button Text="Atras"
+                x:Name="BackButton"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnBackAction"
+                HorizontalOptions="Center"
+                Margin="0,25,0,0"
+                BackgroundColor="Black"
+                CornerRadius="5"
+                WidthRequest="150"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

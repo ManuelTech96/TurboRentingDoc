@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.ShowClientList"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.BindingContext>
+        <local:ClientViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+            <ListView x:Name="listView"
+                      ItemsSource="{Binding ClientList}"
+                      ItemSelected="OnItemSelected"
+                      VerticalOptions="Center"
+                      HorizontalOptions="Center"
+                      MaximumWidthRequest="250"
+                      MaximumHeightRequest="250"
+                      SeparatorColor="Black">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Border Stroke="Black"
+                                        StrokeThickness="0.5"
+                                        Padding="16,8"
+                                        Margin="0,5,0,5"
+                                        WidthRequest="200"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                                    <Label Text="{Binding Email}"/>
+
+                                </Border>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout x:Name="DetailsClient"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Grid.Column="1"
+                             IsVisible="False">
+
+            <Grid ColumnSpacing="50"
+                  RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nombre"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                    <Label x:Name="ClientFirstNameLabel"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Apellidos"
+                       Grid.Row="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                    <Label x:Name="ClientLastNameLabel"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Dni/Nie/Pasaporte"
+                       Grid.Row="2"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                    <Label x:Name="ClientDniLabel"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Telefono"
+                       Grid.Row="3"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                    <Label x:Name="ClientPhoneLabel"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Email"
+                       Grid.Row="4"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                    <Label x:Name="ClientEmailLabel"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                </Grid>
+        </VerticalStackLayout>
+        
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="2">
+            
+            <Grid ColumnSpacing="15"
+                  RowSpacing="15">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button Text="Añadir"
+                        x:Name="CreateButton"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Clicked="OnCreateClient"
+                        BackgroundColor="White"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        CornerRadius="5"
+                        HorizontalOptions="Center"
+                        WidthRequest="150"/>
+
+                <Button Text="Actualizar"
+                        x:Name="UpdateButton"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Clicked="OnUpdateClient"
+                        IsEnabled="False"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Gray"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        Grid.Column="1"
+                        CornerRadius="5"
+                        WidthRequest="150"/>
+
+                <Button Text="Borrar"
+                        x:Name="DeleteButton"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Clicked="OnDeleteClient"
+                        IsEnabled="False"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Gray"
+                        BorderColor="Black"
+                        BorderWidth="1"
+                        Grid.Column="2"
+                        CornerRadius="5"
+                        WidthRequest="150"/>
+            </Grid>
+
+            <Button Text="Atras"
+                    x:Name="BackButton"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnBackAction"
+                    HorizontalOptions="End"
+                    Margin="0,10,0,0"
+                    BackgroundColor="Black"
+                    CornerRadius="5"
+                    WidthRequest="150"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.ShowContractList"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.BindingContext>
+        <local:ContractViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+            <ListView x:Name="listView"
+                      ItemsSource="{Binding ContractList}"
+                      ItemSelected="OnItemSelected"
+                      VerticalOptions="Center"
+                      HorizontalOptions="Center"
+                      MaximumWidthRequest="250"
+                      MaximumHeightRequest="250"
+                      SeparatorColor="Black">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Border Stroke="Black"
+                                        StrokeThickness="0.5"
+                                        Padding="16,8"
+                                        Margin="0,5,0,5"
+                                        WidthRequest="200"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center">
+                                    <Label Text="{Binding InfoContrato}"/>
+
+                                </Border>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="DetailsContract"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Grid.Column="1"
+                             IsVisible="False">
+            
+            <Grid ColumnSpacing="50"
+                      RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>    
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Codigo de contrato"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"/>
+                    <Label x:Name="ContractCodeLabel"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"
+                           Grid.Column="1"/>
+
+                    <Label Text="Tipo de contrato"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                           Grid.Row="1"/>
+                    <Label x:Name="ContractTypeNameLabel"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Coste mensual"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="2"/>
+                    <Label x:Name="ContractMonthlyCostLabel"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Fecha de inicio"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="3"/>
+                    <Label x:Name="ContractBeginingDateLabel"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Fecha de fin"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="4"/>
+                    <Label x:Name="ContractEndingDateLabel"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Duracion"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="5"/>
+                    <Label x:Name="ContractDurationLabel"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Cliente"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="6"/>
+                    <Label x:Name="ContractClientLabel"
+                       Grid.Column="1"
+                       Grid.Row="6"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                    <Label Text="Coste total"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Grid.Row="7"/>
+                    <Label x:Name="ContractTotalCostLabel"
+                       Grid.Column="1"
+                       Grid.Row="7"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+
+                </Grid>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="2"
+                             Margin="75">
+
+            <Button Text="Atras"
+                    x:Name="BackButton"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnBackAction"
+                    HorizontalOptions="End"
+                    BackgroundColor="Black"
+                    CornerRadius="5"
+                    WidthRequest="150"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

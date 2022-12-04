@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.CreateClient"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Margin="40">
+
+        <Grid ColumnSpacing="35"
+              RowSpacing="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Nombre"/>
+            <Entry x:Name="AddFirstNameControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Column="1"/>
+
+            <Label Text="Apellidos"
+                   Grid.Row="1"/>
+            <Entry x:Name="AddLastNameControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+
+            <Label Text="Email"
+                   Grid.Row="2"/>
+            <Entry x:Name="AddEmailControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+            <Label Text="Telefono"
+                   Grid.Row="3"/>
+            <Entry x:Name="AddPhoneControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+
+            <Label Text="Dni/Nie/Pasaporte"
+                   Grid.Row="4"/>
+            <Entry x:Name="AddDniControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+
+            <Button x:Name="CreateButton"
+                    Text="Crear"
+                    TextColor="Black"
+                    Clicked="OnCreateButton"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="Transparent"
+                    BorderColor="Black"
+                    BorderWidth="0.5"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"/>
+
+        </Grid>
+
+        <Button Text="Atras"
+                x:Name="BackButton"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnBackAction"
+                HorizontalOptions="Center"
+                Margin="0,25,0,0"
+                BackgroundColor="Black"
+                CornerRadius="5"
+                WidthRequest="150"/>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.CreateRentalMenu">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <VerticalStackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="600"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="275"/>
+                <RowDefinition Height="275"/>
+                <RowDefinition Height="210"/>
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout MaximumWidthRequest="400"
+                                 MaximumHeightRequest="200"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+
+                <Label Text="CLIENTE"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+
+                <ImageButton Source="https://blog.interius.com.mx/hubfs/01-Blog/Conoce%20las%203%20fases%20de%20fidelizaci%C3%B3n.jpeg"
+                             Clicked="OnSelectClient"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             WidthRequest="400"
+                             HeightRequest="200"
+                             CornerRadius="50"
+                             x:Name="ImageButtonClient">
+                    <ImageButton.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="15,15"
+                                Opacity="0.8"/>
+                    </ImageButton.Shadow>
+                </ImageButton>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout MaximumWidthRequest="400"
+                                 MaximumHeightRequest="200"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Grid.Row="1">
+
+                <Label Text="VEHICULO"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+
+                <ImageButton Source="https://okdiario.com/img/2021/05/25/la-dgt-dara-de-baja-a-miles-de-coches-de-forma-automatica-como-se-puede-evitar-655x368.jpg"
+                             Clicked="OnSelectVehicule"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             WidthRequest="400"
+                             HeightRequest="200"
+                             CornerRadius="50"
+                             x:Name="ImageButtonVehicule"
+                             IsEnabled="False">
+                    <ImageButton.Shadow>
+                        <Shadow x:Name="ImageButtonVehiculeShadow"
+                                Brush="White"
+                                Offset="15,15"
+                                Opacity="0.8"/>
+                    </ImageButton.Shadow>
+                </ImageButton>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout MaximumWidthRequest="400"
+                                 MaximumHeightRequest="200"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Grid.Column="1">
+
+                <Label Text="CONTRATO"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+
+                <ImageButton Source="https://www.pagepersonnel.es/sites/pagepersonnel.es/files/styles/advice_node_desktop/public/legacy/Contratos_Gema_Mart%C3%ADn.jpeg?itok=XHWwQBAC"
+                             Clicked="OnCreateContract"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             WidthRequest="400"
+                             HeightRequest="200"
+                             CornerRadius="50"
+                             x:Name="ImageButtonContract"
+                             IsEnabled="False">
+                    <ImageButton.Shadow>
+                        <Shadow x:Name="ImageButtonContractShadow"
+                                Brush="White"
+                                Offset="15,15"
+                                Opacity="0.8"/>
+                    </ImageButton.Shadow>
+                </ImageButton>
+            </VerticalStackLayout>
+
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  ColumnSpacing="35"
+                  Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Crear"
+                        Clicked="OnCreateAction"
+                        BackgroundColor="Gray"
+                        BorderColor="Black"
+                        BorderWidth="0.5"
+                        FontAttributes="Bold"
+                        WidthRequest="150"
+                        IsEnabled="False"
+                        TextColor="Black"
+                        x:Name="CreateButtonAction"/>
+                <Button Text="Ver alquiler"
+                        Clicked="RentalDetails"
+                        BackgroundColor="Gray"
+                        BorderColor="Black"
+                        BorderWidth="0.5"
+                        FontAttributes="Bold"
+                        WidthRequest="150"
+                        IsEnabled="False"
+                        Grid.Column="1"
+                        x:Name="UpdateButtonAction"/>
+                <Button Text="Atras"
+                        Clicked="OnBackAction"
+                        BackgroundColor="Black"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        WidthRequest="150"
+                        Grid.Column="2"/>
+            </Grid>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.CreateVehicule"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.BindingContext>
+        <local:VehiculeViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ScrollView HorizontalOptions="Center"
+                VerticalScrollBarVisibility="Never"
+                Margin="40">
+    
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Margin="40">
+        
+            <Grid ColumnSpacing="35"
+                  RowSpacing="35">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Matricula"/>
+                <Entry x:Name="AddRegistrationControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Column="1"/>
+
+                <Label Text="Marca"
+                   Grid.Row="1"/>
+                <Entry x:Name="AddBrandControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+
+                <Label Text="Modelo"
+                   Grid.Row="2"/>
+                <Entry x:Name="AddModelControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+                <Label Text="Combustible"
+                   Grid.Row="3"/>
+                <Picker x:Name="AddFuelControl"
+                        ItemsSource="{Binding FuelsList}"
+                        ItemDisplayBinding="{Binding FuelName}"
+                        Grid.Row="3"
+                        Grid.Column="1"/>
+
+                <Label Text="Potencia"
+                   Grid.Row="4"/>
+                <Entry x:Name="AddCvControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+
+                <Label Text="Puertas"
+                   Grid.Row="5"/>
+                <Entry x:Name="AddNDoorsControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="5"
+                   Grid.Column="1"/>
+
+                <Label Text="Llantas"
+                   Grid.Row="6"/>
+                <Entry x:Name="AddWheelsSizeControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="6"
+                   Grid.Column="1"/>
+
+                <Label Text="Garaje"
+                       Grid.Row="7"/>
+                <Picker x:Name="AddGarageControl"
+                        ItemsSource="{Binding GarageList}"
+                        ItemDisplayBinding="{Binding Name}"
+                        Grid.Row="7"
+                        Grid.Column="1"/>
+
+
+                <Label Text="Imagen"
+                   Grid.Row="8"/>
+                <Entry x:Name="AddImageControl"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Row="8"
+                   Grid.Column="1"/>
+
+
+                <Button x:Name="CreateButton"
+                    Text="Crear"
+                    TextColor="Black"
+                    Clicked="OnCreateButton"
+                    Grid.Row="9"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="White"
+                    BorderColor="Black"
+                    BorderWidth="0.5"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"/>
+
+                <Button Text="Atras"
+                        x:Name="BackButton"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="OnBackAction"
+                        Grid.Row="10"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="Center"
+                        Margin="0,25,0,0"
+                        BackgroundColor="Black"
+                        CornerRadius="5"
+                        WidthRequest="150"/>
+
+            </Grid>
+
+        
+
+    </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

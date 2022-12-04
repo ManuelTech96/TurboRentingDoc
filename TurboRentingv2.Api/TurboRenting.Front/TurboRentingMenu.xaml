@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurboRenting.Front.TurboRentingMenu"
+             xmlns:local="clr-namespace:TurboRenting.Front">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Clientes">
+            <MenuFlyoutItem Text="Gestionar clientes"
+                            Clicked="goToAllClients"/>
+            
+        </MenuBarItem>
+
+        <MenuBarItem Text="Vehiculos">
+            <MenuFlyoutItem Text="Gestionar vehiculos"
+                            Clicked="goToAllVehicules"/>
+        </MenuBarItem>
+
+        <MenuBarItem Text="Usuarios">
+            <MenuFlyoutItem Text="Gestionar usuarios"
+                            Clicked="goToAllUsers"/>
+        </MenuBarItem>
+
+        <MenuBarItem Text="Contratos">
+            <MenuFlyoutItem x:Name="menuItemContratos"
+                            Text="Histórico de contratos"
+                            Clicked="goToAllContracts"/>
+        </MenuBarItem>
+
+        <MenuBarItem Text="Garajes">
+            <MenuFlyoutItem Text="Gestionar garajes"
+                            Clicked="goToAllGarages"/>
+        </MenuBarItem>
+
+    </ContentPage.MenuBarItems>
+    
+    <VerticalStackLayout Spacing="25"
+                         Padding="30,0"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center">
+
+        <Label Text="Gestionar alquiler"
+               VerticalOptions="Center"
+               FontSize="Header"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Button Text="Iniciar"
+                Clicked="manageRental"
+                WidthRequest="250"
+                MaximumWidthRequest="250"
+                BorderColor="Black"
+                BorderWidth="1"
+                BackgroundColor="DarkRed"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="Large"/>
+
+        <Button Text="Cerrar sesion"
+                x:Name="BackButton"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnBackAction"
+                HorizontalOptions="Center"
+                Margin="0,25,0,0"
+                BackgroundColor="Black"
+                CornerRadius="5"
+                WidthRequest="150"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>
